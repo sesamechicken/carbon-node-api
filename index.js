@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 const http = require('http')
-
+const fs = require('fs')
 
 
 
@@ -8,6 +8,8 @@ getCarbonImage = async (code) => {
   console.log(code)
   const browser = await puppeteer.launch({
     headless: true,
+    height: 1920,
+    width: 1080,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
   const page = await browser.newPage();
@@ -35,6 +37,9 @@ const requestListener = async (req, res) => {
   const code = req.url.split('=')[1]
   if(code){
     await getCarbonImage(code)
+    const img = fs.readFileSync('./carbon.png');
+    res.writeHead(200, {'Content-Type': 'image/png' });
+    res.end(img, 'binary');
     res.writeHead(200);
   } else {
   res.writeHead(200);
