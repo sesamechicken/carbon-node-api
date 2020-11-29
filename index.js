@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer-core')
+const puppeteer = require('puppeteer')
 const http = require('http')
 
 
@@ -6,8 +6,10 @@ const http = require('http')
 
 getCarbonImage = async (code) => {
   console.log(code)
-  const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium-browser', headless: true,
-   args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
   const page = await browser.newPage();
   await page.goto(`https://carbon.now.sh/?theme=hopscotch&code=${code}`);
 
@@ -33,7 +35,6 @@ const requestListener = async (req, res) => {
   const code = req.url.split('=')[1]
   if(code){
     await getCarbonImage(code)
-    res.end('Image generated');
     res.writeHead(200);
   } else {
   res.writeHead(200);
