@@ -1,0 +1,12 @@
+{
+  "name": "carbon-node-api",
+  "version": "1.0.0",
+  "description": "API to programatically grab a beatuifu carbon code image",
+  "main": "index.js",
+  "author": "chris <chris.dickow@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
+  }
+}
