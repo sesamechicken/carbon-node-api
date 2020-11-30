@@ -1,7 +1,7 @@
 {
   "name": "carbon-node-api",
   "version": "1.0.0",
-  "description": "API to programatically grab a beatuifu carbon code image",
+  "description": "API to programatically grab a beautiful carbon.sh code image",
   "main": "index.js",
   "author": "chris <chris.dickow@gmail.com>",
   "license": "MIT",

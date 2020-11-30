@@ -3,7 +3,6 @@ const http = require('http')
 const fs = require('fs')
 
 
-
 getCarbonImage = async (code) => {
   console.log(code)
   const browser = await puppeteer.launch({
