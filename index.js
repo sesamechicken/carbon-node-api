@@ -13,7 +13,7 @@ getCarbonImage = async (code) => {
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
   const page = await browser.newPage();
-  await page.goto(`https://carbon.now.sh/?theme=hopscotch&code=${code}`);
+  await page.goto(`https://carbon.now.sh/?t=hopscotch&code=${code}`);
 
   const export_menu = await page.$('#export-menu')
   await export_menu.click()
